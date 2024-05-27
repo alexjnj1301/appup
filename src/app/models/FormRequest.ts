@@ -7,13 +7,13 @@ export interface FormRequest {
   token: string
 }
 
-enum LocationCity {
+export enum LocationCity {
   PARIS = 'Paris',
   LYON = 'Lyon',
   MARSEILLE = 'Marseille'
 }
 
-enum CarToRent {
+export enum CarToRent {
   ASTON_MARTIN = 'Aston Martin',
   BETNLEY = 'Bentley',
   CADILLAC = 'Cadillac',
