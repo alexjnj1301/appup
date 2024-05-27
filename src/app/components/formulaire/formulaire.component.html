@@ -1,0 +1,43 @@
+<div style="text-align: center; margin: 50px; display: block;">
+  <h1>Formulaire</h1>
+  <div class="form_container">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Nom">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Prénom</mat-label>
+        <input matInput placeholder="Prénom">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="Age">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Véhicule</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let car of carList | keyvalue" value="car.key">{{car.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Villes</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let city of cityList | keyvalue" value="car.key">{{city.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Token</mat-label>
+      <input matInput placeholder="Placeholder">
+    </mat-form-field>
+  </div>
+</div>
+
