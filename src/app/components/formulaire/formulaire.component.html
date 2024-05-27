@@ -1,43 +1,46 @@
 <div class="neumorphism-container">
   <h1>Formulaire</h1>
   <div class="form_container">
-    <div>
-      <mat-form-field appearance="fill" class="neumorphism-input">
-        <mat-label>Nom</mat-label>
-        <input matInput placeholder="Nom">
-      </mat-form-field>
+    <form (ngSubmit)="sendForm()">
+      <div>
+        <mat-form-field appearance="fill" class="neumorphism-input">
+          <mat-label>Nom</mat-label>
+          <input matInput placeholder="Nom">
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="neumorphism-input">
-        <mat-label>Prénom</mat-label>
-        <input matInput placeholder="Prénom">
-      </mat-form-field>
+        <mat-form-field appearance="fill" class="neumorphism-input">
+          <mat-label>Prénom</mat-label>
+          <input matInput placeholder="Prénom">
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="neumorphism-input">
-        <mat-label>Age</mat-label>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-    </div>
+        <mat-form-field appearance="fill" class="neumorphism-input">
+          <mat-label>Age</mat-label>
+          <input matInput placeholder="Age">
+        </mat-form-field>
+      </div>
 
-    <div>
-      <mat-form-field appearance="fill" class="neumorphism-input">
-        <mat-label>Véhicule</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let car of carList | keyvalue" [value]="car.key">{{car.value}}</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div>
+        <mat-form-field appearance="fill" class="neumorphism-input">
+          <mat-label>Véhicule</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let car of carList | keyvalue" [value]="car.key">{{car.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="neumorphism-input">
-        <mat-label>Villes</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let city of cityList | keyvalue" [value]="city.key">{{city.value}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+        <mat-form-field appearance="fill" class="neumorphism-input">
+          <mat-label>Villes</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let city of cityList | keyvalue" [value]="city.key">{{city.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="neumorphism-input">
-      <mat-label>Token</mat-label>
-      <input matInput placeholder="Token">
-    </mat-form-field>
+        <mat-form-field appearance="fill" class="neumorphism-input">
+          <mat-label>Token</mat-label>
+          <input matInput placeholder="Token">
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit">Envoyer</button>
+    </form>
   </div>
   <div class="all-wrap">
     <div class="all">
