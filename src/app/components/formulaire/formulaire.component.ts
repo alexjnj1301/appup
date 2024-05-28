@@ -6,7 +6,7 @@ import { CarToRent, LocationCity } from "../../models/FormRequest"
 import { KeyValuePipe, NgForOf } from "@angular/common"
 import { FormBuilder, FormGroup, FormsModule, Validators } from "@angular/forms"
 import { MatButton } from "@angular/material/button"
-import { StripeService } from '../../_services/stripe';
+import { StripeServices } from '../../_services/stripe';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -21,7 +21,7 @@ export class FormulaireComponent {
   public cityList = LocationCity
   public formGroup: FormGroup
 
-  public constructor(private stripeService: StripeService, public formBuilder: FormBuilder) {
+  public constructor(private stripeServices: StripeServices, public formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
       name: ['', Validators.required],
       firstname: ['', Validators.required],
@@ -33,12 +33,12 @@ export class FormulaireComponent {
   }
 
   public sendForm(): void {
-
-    console.log(this.formGroup.value)
-  }
-
-  public checkout() {
-    this.stripeService.checkout(this.formGroup).subscribe(response => {
-      console.log(response);})
+    this.stripeServices.checkout(this.formGroup.value).subscribe(response => {
+      if (response.sessionId) {
+        this.stripeServices.redirectToCheckout(response.sessionId);
+      } else {
+        console.error('No session ID returned');
+      }
+    });
   }
 }
