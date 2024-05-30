@@ -33,4 +33,9 @@ export class StripeServices {
       console.error('Stripe.js not loaded');
     }
   }
+
+  getSessionDetails(sessionId: string): Observable<any> {
+    console.log(sessionId)
+    return this.http.post<any>(`http://127.0.0.1:8000/api/caca`, {sessionId});
+  }
 }

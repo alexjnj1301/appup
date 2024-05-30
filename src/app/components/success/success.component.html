@@ -1,0 +1,11 @@
+<div *ngIf="sessionDetails; else noData">
+  <h2>Payment Successful!</h2>
+  <p>Name: {{ sessionDetails.name }}</p>
+  <p>Firstname: {{ sessionDetails.firstname }}</p>
+  <p>Age: {{ sessionDetails.age }}</p>
+  <p>Location City: {{ sessionDetails.locationCity }}</p>
+  <p>Car to Rent: {{ sessionDetails.carToRent }}</p>
+</div>
+<ng-template #noData>
+  caca
+</ng-template>

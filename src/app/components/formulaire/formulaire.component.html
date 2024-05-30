@@ -2,42 +2,42 @@
 <div class="neumorphism-container">
   <h1>Formulaire</h1>
   <div class="form_container">
-    <form (ngSubmit)="sendForm()">
+    <form (ngSubmit)="sendForm()" [formGroup]="formGroup">
       <div>
         <mat-form-field appearance="fill" class="neumorphism-input">
           <mat-label>Nom</mat-label>
-          <input matInput placeholder="Nom">
+          <input matInput placeholder="Nom" formControlName="name">
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="neumorphism-input">
           <mat-label>Prénom</mat-label>
-          <input matInput placeholder="Prénom">
+          <input matInput placeholder="Prénom" formControlName="firstname">
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="neumorphism-input">
           <mat-label>Age</mat-label>
-          <input matInput placeholder="Age">
+          <input matInput placeholder="Age" formControlName="age">
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field appearance="fill" class="neumorphism-input">
           <mat-label>Véhicule</mat-label>
-          <mat-select>
+          <mat-select formControlName="carToRent">
             <mat-option *ngFor="let car of carList | keyvalue" [value]="car.key">{{car.value}}</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="neumorphism-input">
+        <mat-form-field appearance="fill" class="neumorphism-input" name="carToRent">
           <mat-label>Villes</mat-label>
-          <mat-select>
+          <mat-select formControlName="locationCity">
             <mat-option *ngFor="let city of cityList | keyvalue" [value]="city.key">{{city.value}}</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field appearance="fill" class="neumorphism-input">
+        <mat-form-field appearance="fill" class="neumorphism-input" name="token">
           <mat-label>Token</mat-label>
-          <input matInput placeholder="Token">
+          <input matInput placeholder="Token" formControlName="token">
         </mat-form-field>
       </div>
       <button mat-raised-button color="primary" type="submit">Payer</button>

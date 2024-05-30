@@ -4,7 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatSelectModule } from '@angular/material/select'
 import { CarToRent, LocationCity } from "../../models/FormRequest"
 import { KeyValuePipe, NgForOf } from "@angular/common"
-import { FormBuilder, FormGroup, FormsModule, Validators } from "@angular/forms"
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms"
 import { MatButton } from "@angular/material/button"
 import { StripeServices } from '../../_services/stripe';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './formulaire.component.html',
   styleUrl: './formulaire.component.scss',
   standalone: true,
-  imports: [ MatFormFieldModule, MatInputModule, MatSelectModule, KeyValuePipe, NgForOf, FormsModule, MatButton, HttpClientModule ]
+  imports: [ MatFormFieldModule, MatInputModule, MatSelectModule, KeyValuePipe, NgForOf, FormsModule, MatButton, HttpClientModule, ReactiveFormsModule ]
 })
 export class FormulaireComponent {
   public carList = CarToRent
@@ -26,8 +26,8 @@ export class FormulaireComponent {
       name: ['', Validators.required],
       firstname: ['', Validators.required],
       age: [0, Validators.required],
-      locationCity: [LocationCity.PARIS, Validators.required],
       carToRent: [CarToRent.ASTON_MARTIN, Validators.required],
+      locationCity: [LocationCity.PARIS, Validators.required],
       token: ['', Validators.required],
     });
   }
@@ -36,6 +36,7 @@ export class FormulaireComponent {
     this.stripeServices.checkout(this.formGroup.value).subscribe(response => {
       if (response.sessionId) {
         this.stripeServices.redirectToCheckout(response.sessionId);
+        console.log(response)
       } else {
         console.error('No session ID returned');
       }
