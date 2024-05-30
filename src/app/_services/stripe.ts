@@ -14,7 +14,6 @@ export class StripeServices {
   }
 
   checkout(formGroup: any): Observable<any> {
-    console.log(formGroup)
     return this.http.post<any>(`http://127.0.0.1:8000/api/checkout`, formGroup);
   }
 
@@ -35,7 +34,6 @@ export class StripeServices {
   }
 
   getSessionDetails(sessionId: string): Observable<any> {
-    console.log(sessionId)
     return this.http.post<any>(`http://127.0.0.1:8000/api/details`, {sessionId});
   }
 }

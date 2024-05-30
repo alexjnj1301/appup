@@ -1,15 +1,28 @@
-<div *ngIf="sessionDetails; else noData" style="text-align: center; margin: 50px;">
-  <h2>Payment Successful!</h2>
-  <p>Name: {{ sessionDetails.name }}</p>
-  <p>Firstname: {{ sessionDetails.firstname }}</p>
-  <p>Age: {{ sessionDetails.age }}</p>
-  <p>Location City: {{ sessionDetails.locationCity }}</p>
-  <p>Car to Rent: {{ sessionDetails.carToRent }}</p>
-  <p>Amount: {{ sessionDetails.amount_total }}</p>
-  <p>Last4: {{ sessionDetails.last4 }}</p>
-  <p>Email: {{ sessionDetails.email }}</p>
-  <button mat-raised-button color="primary">Recevoir une confirmation par mail</button>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+<div *ngIf="sessionDetails; else noData">
+  <main>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80" alt="">
+      <div class="card-content">
+        <h2>Payment Successful!</h2>
+        <p>Nom: {{ sessionDetails.name }}<br>
+          Prénom: {{ sessionDetails.firstname }}<br>
+          Age: {{ sessionDetails.age }}<br>
+          Ville de location: {{ sessionDetails.locationCity }}<br>
+          Voiture à louer: {{ sessionDetails.carToRent }}<br>
+          Montant: {{ sessionDetails.amount_total }}<br>
+          4 derniers chiffres de la carte: {{ sessionDetails.last4 }}<br>
+          Email: {{ sessionDetails.email }}</p>
+      </div>
+    </div>
+    <p>Hover me !</p>
+  </main>
+  <button class="button-86" role="button" (click)="getMail()">Recevoir une confirmation par mail</button>
 </div>
 <ng-template #noData>
-  loading...
+  <app-loader></app-loader>
 </ng-template>
