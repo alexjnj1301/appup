@@ -1,11 +1,15 @@
-<div *ngIf="sessionDetails; else noData">
+<div *ngIf="sessionDetails; else noData" style="text-align: center; margin: 50px;">
   <h2>Payment Successful!</h2>
   <p>Name: {{ sessionDetails.name }}</p>
   <p>Firstname: {{ sessionDetails.firstname }}</p>
   <p>Age: {{ sessionDetails.age }}</p>
   <p>Location City: {{ sessionDetails.locationCity }}</p>
   <p>Car to Rent: {{ sessionDetails.carToRent }}</p>
+  <p>Amount: {{ sessionDetails.amount_total }}</p>
+  <p>Last4: {{ sessionDetails.last4 }}</p>
+  <p>Email: {{ sessionDetails.email }}</p>
+  <button mat-raised-button color="primary">Recevoir une confirmation par mail</button>
 </div>
 <ng-template #noData>
-  caca
+  loading...
 </ng-template>

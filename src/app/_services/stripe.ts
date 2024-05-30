@@ -36,6 +36,6 @@ export class StripeServices {
 
   getSessionDetails(sessionId: string): Observable<any> {
     console.log(sessionId)
-    return this.http.post<any>(`http://127.0.0.1:8000/api/caca`, {sessionId});
+    return this.http.post<any>(`http://127.0.0.1:8000/api/details`, {sessionId});
   }
 }

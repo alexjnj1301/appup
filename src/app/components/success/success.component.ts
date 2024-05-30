@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { StripeServices } from '../../_services/stripe';
 import { ActivatedRoute } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { MatButton } from "@angular/material/button"
 
 @Component({
   selector: 'app-success',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, MatButton],
   templateUrl: './success.component.html',
   styleUrl: './success.component.scss'
 })
