@@ -31,7 +31,8 @@ export class SuccessComponent implements OnInit {
     });
   }
 
-  public getMail(): void {
-    console.log('envoie de mail')
+  public sendMail(): void {
+    const vide = ''
+    this.stripeServices.send(vide);
   }
 }

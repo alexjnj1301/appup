@@ -36,4 +36,8 @@ export class StripeServices {
   getSessionDetails(sessionId: string): Observable<any> {
     return this.http.post<any>(`http://127.0.0.1:8000/api/details`, {sessionId});
   }
+
+  send(vide: any): Observable<any> {
+    return this.http.post<any>(`http://127.0.0.1:8000/api//send-email`, vide);
+  }
 }
